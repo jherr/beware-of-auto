@@ -3,7 +3,9 @@ import Link from "next/link";
 const SERVICES = process.env.SERVICES;
 
 export default async function NavBar() {
-  const navReq = await fetch(`${SERVICES}/api/nav`);
+  const navReq = await fetch(`${SERVICES}/api/nav`, {
+    cache: "no-cache",
+  });
   const nav: {
     title: string;
     url: string;
